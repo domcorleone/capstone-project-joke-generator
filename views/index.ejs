@@ -1,0 +1,122 @@
+<%- include("header.ejs") %>
+  <div class="container">
+    <div class="item">
+    </div>
+    <div class="item space">
+      <form id="form-rand-search-id" method="post" action="/random" class="block">
+        <div class="block-item">
+          Please Select Type of Joke
+        </div>
+        <div class="block-item">
+          <input type="radio" id="randomRadio" name="options" <% if(type==="random" ) { %> checked <% } else { %>
+            unchecked <% } %>>
+              <label for="random">Random </label>
+        </div>
+        <div class="block-item">
+          <input type="radio" id="searchRadio" value="search" name="options" <% if(type==="search" ) { %> checked <% }
+            else { %> unchecked <% } %> >
+              <label for="random">Search</label>
+        </div>
+      </form>
+    </div>
+    <div class="item space search-panel">
+      <form action="/search" method="POST" class="block">
+        <div class="block-item">
+          <input type="checkbox" name="all" id="cat-any" value="Any">
+          <label for="cat-any">All</label>
+        </div>
+        <div class="block-item">
+          <input type="checkbox" name="programming" id="cat-program" value="Programming">
+          <label for="cat-program">Programming</label>
+        </div>
+        <div class="block-item">
+          <input type="checkbox" name="misc" id="cat-misc" value="Miscellaneous">
+          <label for="cat-misc">Misc</label>
+        </div>
+        <div class="block-item">
+          <input type="checkbox" name="dark" id="cat-dark" value="Dark">
+          <label for="cat-dark">Dark</label>
+        </div>
+        <div class="block-item">
+          <input type="checkbox" name="pun" id="cat-pun" value="Pun">
+          <label for="cat-pun">Pun</label>
+        </div>
+        <div class="block-item">
+          <input type="checkbox" name="spooky" id="cat-spooky" value="Spooky">
+          <label for="cat-pun">Spooky</label>
+        </div>
+        <div class="block-item">
+          <input type="checkbox" name="christmas" id="cat-christmas" value="Christmas">
+          <label for="cat-christmas">Christmas</label>
+        </div>
+        <div class="block-item space">
+          <label for="select-language-id">Language</label>
+          <select name="select-language" id="select-language-id">
+            <option value=""></option>
+            <option value="cs">Czech</option>
+            <option value="en">English</option>
+            <option value="fr">French</option>
+            <option value="pt">Portuguese</option>
+            <option value="es">Spanish</option>
+          </select>
+        </div>
+        <div class="block-item">
+          <label for="exclude-id">Exclude</label>
+          <input type="checkbox" name="nsfx" id="nsfx-id">
+          <label for="">nsfx</label>
+          <input type="checkbox" name="religious" id="religious-id">
+          <label for="">Religious</label>
+          <input type="checkbox" name="political" id="political-id">
+          <label for="">Political</label>
+          <input type="checkbox" name="racist" id="racist-id">
+          <label for="">Racist</label>
+          <input type="checkbox" name="sexist" id="sexist-id">
+          <label for="">Sexist</label>
+          <input type="checkbox" name="explicit" id="explicit-id">
+          <label for="">Explicit</label>
+        </div>
+        <div class="block-item">
+          <button type="submit">search</button>
+        </div>
+      </form>
+    </div>
+    <!--show one joke if users selects random or at least 10 jokes if user selects search--> 
+    <% if (locals.type && locals.joke) { %>
+      <% if (type==="random" ) { %>
+        <div class="item">
+          <div class="card">
+            <p>
+              <%= joke %>
+            </p>
+          </div>
+        </div>
+      <% } else if ( type==="search" && error==="no" ) { %>
+        <% for( let index=0; index < joke.length; index++ ) { %>
+          <div class="item">
+            <div class="card">
+              <% if ( joke[index].type==="twopart" ) { %>
+                <p>
+                <%= JSON.stringify(joke[index].setup) %>
+                <%= JSON.stringify(joke[index].delivery) %>
+                </p>
+              <% } else { %> <!--means JSON.stringify(joke[index].type) === "single"-->
+                <p>
+                <%= JSON.stringify(joke[index].joke) %>
+                </p>
+              <% } %>
+            </div>
+          </div>
+                  <% } %>
+        <% } else { %>
+          <div class="item">
+            <div class="card">
+              <p>
+              <%= joke %>
+              </p>
+            </div>
+          </div>
+          <% } %>
+      <% } %>
+  </div>
+  </div>
+  <%- include("footer.ejs") %>
