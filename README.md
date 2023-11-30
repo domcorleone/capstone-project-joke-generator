@@ -1,30 +1,33 @@
 # Joke Random Generator
+
 **Joke Random Generator**, is a [node.js](https://nodejs.org/en/docs) web application that aims to generate a random joke to the user every 10s. Furthermore, it's possible to search for a joke(s) based on the following criterias:
+
 - Categories
-   + Programming
-   + Miscellanious
-   + Pun
-   + Christmas
-   + Dark
-   + Spooky
+  - Programming
+  - Miscellanious
+  - Pun
+  - Christmas
+  - Dark
+  - Spooky
 - Language
-   + English
-   + French
-   + Spanish
-   + Portuguese
-   + Szech
+  - English
+  - French
+  - Spanish
+  - Portuguese
+  - Szech
 - Black List Flags
-   + Nsfw 
-   + Religious
-   + Political
-   + Sexist
-   + Racist
-   + Explicit
+  - Nsfw
+  - Religious
+  - Political
+  - Sexist
+  - Racist
+  - Explicit
 
 > **Note:** Joke random Generator, limits the returned results to 10 records only.
-> 
-**Joke Random Generator**, uses a REST API [Joke API](https://sv443.net/jokeapi/v2/) and was built for academic purpose, however it can be further used or enhanced to suit any needs or different purposes. 
-The following technologies and frameworks were used to develop this web application:
+>
+> **Joke Random Generator**, uses a REST API [Joke API](https://sv443.net/jokeapi/v2/) and was built for academic purpose, however it can be further used or enhanced to suit any needs or different purposes.
+> The following technologies and frameworks were used to develop this web application:
+
 - [Node.js](https://nodejs.org/en/docs)
 - [Express.js](https://expressjs.com/)
 - [Npm](https://www.npmjs.com/) module [body-parser](https://www.npmjs.com/package/body-parser)
@@ -33,7 +36,7 @@ The following technologies and frameworks were used to develop this web applicat
 - [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 - [Jquery](https://api.jquery.com/)
 - [Html](https://html.com/)
-- [Css](https://www.w3.org/Style/CSS/Overview.en.html#:~:text=Cascading%20Style%20Sheets%20(CSS)%20is,from%20the%20CSS%20working%20group.)
+- [Css](<https://www.w3.org/Style/CSS/Overview.en.html#:~:text=Cascading%20Style%20Sheets%20(CSS)%20is,from%20the%20CSS%20working%20group.>)
 
 ## Installation
 
@@ -56,11 +59,11 @@ Now, you can run the application:
 If everything goes well, you should have the following message in your command line:
 
 > Server is running on port 3000
->
 
 ## Usage
 
-Open your browser and type the following text in your address bar: 
+Open your browser and type the following text in your address bar:
+
 > localhost:3000
 
 <img src="public/img/joke-generator.png" alt="joke-generator" width="850">
@@ -78,4 +81,4 @@ A demo of some of the results that are presented to the end user
 
 ## Credits
 
-[Dr. Angela Yu](https://github.com/angelabauer)
+[Dr. Angela Yu](https://github.com/angelabauer) for all the provided knowledge.
